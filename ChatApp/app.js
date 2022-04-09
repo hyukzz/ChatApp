@@ -14,5 +14,10 @@ const PORT = process.env.PORT || 5000
 server.listen(PORT, () => console.log(`server is running ${PORT}`))
 
 io.on('connection', socket => {
-	console.log('socket')
+	socket.on('chatting', data => {
+		// console.log(data)
+		// io.emit('chatting', `안녕하세요 ${data}`)
+		io.emit('chatting', data)
+	})
+	// console.log('연결됐습니다.')
 })
